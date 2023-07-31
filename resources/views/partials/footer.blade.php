@@ -16,17 +16,11 @@
 </head>
 
 <body>
-     <!-- HEADER -->
-     @include('partials/header')
 
-    <!-- MAIN -->
+    <footer>
+        
+    </footer>
 
-    <main>
-        @yield('content')
-    </main>
-
-    <!-- FOOTER -->
-    @include('partials/footer')
 </body>
 
 </html>
