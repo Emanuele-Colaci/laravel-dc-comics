@@ -10,8 +10,11 @@
             <div class="row my-3">
                 @foreach($comics as $comic)
                 <div class="col-4 ">
-                    <div class="card p-3">
-                            <h3>Ttolo: {{ $comic->title }}</h1>
+                    <div class="card p-3 mb-3">
+                            <a href="">
+                                <img src="{{ $comic->thumb }}" alt="">
+                                <h5>Ttolo: {{ $comic->series }}</h5>
+                            </a>
                         </div>
                     </div>
                 @endforeach
