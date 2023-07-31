@@ -18,7 +18,9 @@
 <body>
 
     <header>
-        
+        <div class="col-12 text-center mt-4">
+            <a href="{{ Route('comics.index') }}" class="btn btn-dark">Homepage</a>
+        </div>
     </header>
 
 </body>
