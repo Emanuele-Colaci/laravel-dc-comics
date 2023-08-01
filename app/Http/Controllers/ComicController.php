@@ -37,7 +37,7 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $form_data = $request->all();
+        $form_data = $this->validation($request->all());
 
         $comic = new Comic();
 
@@ -46,12 +46,6 @@ class ComicController extends Controller
         // $comic->title = $form_data['title'];
         // $comic->description = $form_data['description'];
         // $comic->thumb = $form_data['thumb'];
-        // $comic->cover_image = $form_data['cover_image'];
-        // $comic->thumb2 = $form_data['thumb2'];
-        // $comic->price = $form_data['price'];
-        // $comic->series = $form_data['series'];
-        // $comic->sale_date = $form_data['sale_date'];
-        // $comic->type = $form_data['type'];
         // $comic->artists = $form_data['artists'];
         // $comic->writers = $form_data['writers'];
 
@@ -98,7 +92,7 @@ class ComicController extends Controller
      */
     public function update(Request $request, comic $comic)
     {
-        $form_data = $request->all();
+        $form_data = $this->validation($request->all());
 
         $comic->update($form_data);
 
@@ -115,5 +109,25 @@ class ComicController extends Controller
     {
         $comic->delete();
         return redirect()->route('comics.index');
+    }
+
+    private function validation($data)
+    {
+        $validator = Validator::make($data,
+            [
+                'title'         =>  'required|max:255',
+                'description'   =>  'required',
+                'thumb'         =>  'required',
+                'artists'       =>  'required',
+                'writers'       =>  'required',
+            ],
+            [
+                'required'  => 'Il campo :attribute è obbligatorio.',
+                'max'       => 'Il campo :attribute non può superare :max caratteri.',
+            ]
+        
+        )->validate();
+
+        return $validator;
     }
 }
