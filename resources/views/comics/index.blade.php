@@ -13,7 +13,7 @@
                     <div class="card p-3 mb-3">
                             <a href="{{ Route('comics.show', $comic->id) }}">
                                 <img src="{{ $comic->thumb }}" alt="">
-                                <h5>Ttolo: {{ $comic->series }}</h5>
+                                <h5>Titolo: {{ $comic->series }}</h5>
                             </a>
                         </div>
                     </div>
