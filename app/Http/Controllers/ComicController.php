@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\comic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ComicController extends Controller
 {
@@ -81,9 +82,11 @@ class ComicController extends Controller
      * @param  \App\Models\comic  $comic
      * @return \Illuminate\Http\Response
      */
-    public function edit(comic $comic)
+    public function edit($id)
     {
-        //
+        $comic = Comic::findOrFail($id);
+
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -95,7 +98,11 @@ class ComicController extends Controller
      */
     public function update(Request $request, comic $comic)
     {
-        //
+        $form_data = $request->all();
+
+        $comic->update($form_data);
+
+        return redirect()->route('comics.show', $comic->id);
     }
 
     /**

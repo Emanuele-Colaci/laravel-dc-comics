@@ -5,7 +5,7 @@
         <div class="row border border-4 my-3">
             <div class="col-12 mt-4 mb-5">
                 <div class="card-header d-flex justify-content-center align-items-center text-center">
-                    <h2 class="fs-4 fw-bold py-2">{{ $comic->title }}</h2>
+                    <h2 class="fs-4 fw-bold py-2">{{ $comic->series }}</h2>
                 </div>
                 <div class="row">
                     <div class="col-4 d-flex justify-content-center">
