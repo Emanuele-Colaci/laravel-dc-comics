@@ -15,6 +15,11 @@
                                 <img src="{{ $comic->thumb }}" alt="">
                                 <h5>Titolo: {{ $comic->series }}</h5>
                             </a>
+                            <form action="{{ Route('comics.show', $comic->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-outline-danger" type="submit">Ellimina</button>
+                            </form>
                         </div>
                     </div>
                 @endforeach
