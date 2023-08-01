@@ -13,7 +13,7 @@
                     <div class="card p-3 mb-3">
                             <a class="text-danger text-center my-3" href="{{ Route('comics.show', $comic->id) }}">
                                 <img class="mb-3" src="{{ $comic->thumb }}" alt="">
-                                <h5>Titolo: {{ $comic->series }}</h5>
+                                <h5>Titolo: {{ $comic->title }}</h5>
                             </a>
                             <a href="{{ Route('comics.edit', $comic->id) }}" class="btn btn-success mb-3" type="submit">Modifica</a>
                             <form action="{{ Route('comics.show', $comic->id) }}" method="POST" onsubmit="return confirm('Sei sicuro di voler elliminare il fumetto?')">
