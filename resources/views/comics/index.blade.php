@@ -15,7 +15,7 @@
                                 <img src="{{ $comic->thumb }}" alt="">
                                 <h5>Titolo: {{ $comic->series }}</h5>
                             </a>
-                            <form action="{{ Route('comics.show', $comic->id) }}" method="POST">
+                            <form action="{{ Route('comics.show', $comic->id) }}" method="POST" onsubmit="return confirm('Sei sicuro di voler elliminare il fumetto?')">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-outline-danger" type="submit">Ellimina</button>
